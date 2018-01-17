@@ -71,7 +71,7 @@ var PrimeCalculator = __webpack_require__(1);
 
 var i = "testing the this is seen in the console";
 
-var prime = new PrimeCalculator(100);
+var prime = new PrimeCalculator(30000000);
 
 
 
@@ -111,7 +111,7 @@ primeFinder = function(array){
     var primeArray = array.slice(0);
     var value = findValues(primeArray, 0);
     // console.log(array);
-    var result = clearUpPrimesArray(value);
+     var result = clearUpPrimesArray(value);
     return result;
 };
 
@@ -144,13 +144,14 @@ primar = function(array, value) {
 };
 
 clearUpPrimesArray = function(array){
-    for(var i = array.length; i >= 0; i--){
-        // console.log(array[4]);
-        if(array[i] == 0){
-             array.splice(i,1);
+    var temparray = [];
+    for(var i = 0; i <= array.length; i++){
+        if(array[i] !== 0){
+            temparray.push(array[i]);
+             // array.splice(i,1);
         }
     }
-     return array;
+     return temparray;
 };
 
 
