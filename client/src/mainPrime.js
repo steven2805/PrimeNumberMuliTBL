@@ -7,6 +7,7 @@ mainSetUp = function(){
 
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
+        buildTable(prime);
         console.log(prime);
     })
 
@@ -29,9 +30,13 @@ setUpConfirmBox = function(area){
     button.innerHTML = "Submit";
     area.appendChild(button);
     return button;
-
-
 };
+
+buildTable = function (headers) {
+    var div = document.getElementById("table");
+
+
+}
 
 window.addEventListener("load", function(event){
     console.log("this is the new entry point");
