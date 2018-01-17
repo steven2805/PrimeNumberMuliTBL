@@ -23,5 +23,10 @@ describe('This is testing the Prime Calculator', function(){
         assert.deepEqual(secondnotvalid.range.length ,1)
     });
 
+    it('should be returning primes below 20', function (){
+        var twentyprimes = new PrimeCalculator(20);
+        assert.deepEqual(twentyprimes.primes, [2,5,7,11,13,17,19])
+    })
+
 
 });

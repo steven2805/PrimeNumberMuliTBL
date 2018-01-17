@@ -89,11 +89,9 @@ function PrimeCalculator(n){
         this.number = n;
     }
     this.range = this.rangeGeneration();
+    this.primes = primeFinder(this.range);
 }
 
-PrimeCalculator.prototype.calc  = function () {
-    return this.number * 2;
-};
 
 PrimeCalculator.prototype.rangeGeneration = function(){
     var counter = 1;
@@ -103,11 +101,15 @@ PrimeCalculator.prototype.rangeGeneration = function(){
         array.push(counter);
         counter++;
     }
-
     return array;
 
 };
 
+
+
+primeFinder = function(array){
+    return result;
+};
 
 
 
