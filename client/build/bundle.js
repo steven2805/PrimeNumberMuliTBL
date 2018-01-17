@@ -71,7 +71,7 @@ var PrimeCalculator = __webpack_require__(1);
 
 var i = "testing the this is seen in the console";
 
-var prime = new PrimeCalculator(20);
+var prime = new PrimeCalculator("sam");
 
 
 
@@ -83,7 +83,11 @@ console.log(prime);
 
 
 function PrimeCalculator(n){
-    this.number = n;
+    if(isNaN(n)){
+        this.number = 1;
+    }else{
+        this.number = n;
+    }
     this.range = this.rangeGeneration();
 }
 

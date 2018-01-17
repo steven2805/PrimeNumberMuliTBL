@@ -1,6 +1,10 @@
 
 function PrimeCalculator(n){
-    this.number = n;
+    if(isNaN(n)){
+        this.number = 1;
+    }else{
+        this.number = n;
+    }
     this.range = this.rangeGeneration();
 }
 

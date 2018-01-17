@@ -12,15 +12,15 @@ describe('This is testing the Prime Calculator', function(){
         assert.deepEqual(value.length,100);
     });
 
-    // it('should return default to 1 if not a valid number', function (){
-    //     var notvalid = new PrimeCalculator("something");
-    //     var value = notvaljd.range;
-    //     assert.deepEqual(value.length,1)
-    // });
-    //
+    it('should return default to 1 if not a valid number', function (){
+        var notvalid = new PrimeCalculator("something");
+        var value = notvalid.range;
+        assert.deepEqual(value.length,1)
+    });
+
     // it('should default to 1 if negative number used', function(){
-    //     var notvalid = new PrimeCalculator(-100);
-    //     assert.deepEqual(notvalid.range.length ,1)
+    //     var secondnotvalid = new PrimeCalculator(-100);
+    //     assert.deepEqual(secondnotvalid.range.length ,1)
     // });
 
 
