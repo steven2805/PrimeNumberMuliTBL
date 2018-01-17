@@ -1,17 +1,20 @@
 var express = require('express');
 var app = express();
-var path = require('path');
+var parser = require('body-parser');
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+app.use(parser.json());
+app.use(parser.urlencoded({extended:true}));
+app.use(express.static('client/build'));
+app.use(express.static('client/public'));
+
+app.get('/', function(req,res){
+    res.sendFile(__dirname + '/client/build/index.html')
 });
-
-app.use(express.static('public'));
 
 var server = app.listen(3000, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log("Server Running");
+    console.log("listening on port", host, port);
 
 });
