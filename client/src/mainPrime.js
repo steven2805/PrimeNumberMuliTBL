@@ -1,9 +1,12 @@
 var PrimeCalculator = require("./PrimeCalc.js");
 
-var i = "testing the this is seen in the console";
+mainSetUp = function(){
+    var prime = new PrimeCalculator(30);
+    console.log(prime);
+};
 
-var prime = new PrimeCalculator(30000000);
 
-
-
-console.log(prime);
+window.addEventListener("load", function(event){
+    console.log("this is the new entry point");
+    mainSetUp();
+})

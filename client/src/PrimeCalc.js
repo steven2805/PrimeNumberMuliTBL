@@ -9,7 +9,6 @@ function PrimeCalculator(n){
     this.primes = primeFinder(this.range);
 }
 
-
 PrimeCalculator.prototype.rangeGeneration = function(){
     var counter = 1;
 
@@ -22,13 +21,10 @@ PrimeCalculator.prototype.rangeGeneration = function(){
 
 };
 
-
-
 primeFinder = function(array){
     var primeArray = array.slice(0);
     var value = findValues(primeArray, 0);
-    // console.log(array);
-     var result = clearUpPrimesArray(value);
+    var result = clearUpPrimesArray(value);
     return result;
 };
 
@@ -38,41 +34,35 @@ findValues = function(array, offset){
     for(var i = 0 + offset ; i < array.length; i++){
 
         if(array[i] !== 0){
-            primar(array,array[i]);
+            primer(array,array[i]);
             break;
         }
     }
     return array;
 };
 
-primar = function(array, value) {
+primer = function(array, value) {
     var holdingArray = array;
     if(value * value > array.length){
         return array.length;
     }
-    var currentvalue = value * value;
+    var currentValue = value * value;
 
-    while (currentvalue <= array.length){
-        holdingArray[currentvalue - 1] = 0;
-        currentvalue += value;
+    while (currentValue <= array.length){
+        holdingArray[currentValue - 1] = 0;
+        currentValue += value;
     }
     findValues(holdingArray, value);
-
 };
 
 clearUpPrimesArray = function(array){
-    var temparray = [];
-    for(var i = 0; i <= array.length; i++){
+    var tempArray = [];
+    for(var i = 0; i < array.length; i++){
         if(array[i] !== 0){
-            temparray.push(array[i]);
-             // array.splice(i,1);
+            tempArray.push(array[i]);
         }
     }
-     return temparray;
+     return tempArray;
 };
 
-
-
-
 module.exports = PrimeCalculator;
-
