@@ -83,7 +83,7 @@ console.log(prime);
 
 
 function PrimeCalculator(n){
-    if(isNaN(n)){
+    if(isNaN(n) || n < 1){
         this.number = 1;
     }else{
         this.number = n;

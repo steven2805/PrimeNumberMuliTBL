@@ -18,10 +18,10 @@ describe('This is testing the Prime Calculator', function(){
         assert.deepEqual(value.length,1)
     });
 
-    // it('should default to 1 if negative number used', function(){
-    //     var secondnotvalid = new PrimeCalculator(-100);
-    //     assert.deepEqual(secondnotvalid.range.length ,1)
-    // });
+    it('should default to 1 if negative number used', function(){
+        var secondnotvalid = new PrimeCalculator(-100);
+        assert.deepEqual(secondnotvalid.range.length ,1)
+    });
 
 
 });
