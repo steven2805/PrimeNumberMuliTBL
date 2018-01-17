@@ -8,6 +8,7 @@ describe('This is testing the Prime Calculator', function(){
 
     it('should return 100 values', function () {
         var primeCalc = new PrimeCalculator(100);
+        console.log(primeCalc);
         var value = primeCalc.range;
         assert.deepEqual(value.length,100);
     });
@@ -25,7 +26,7 @@ describe('This is testing the Prime Calculator', function(){
 
     it('should be returning primes below 20', function (){
         var twentyprimes = new PrimeCalculator(20);
-        assert.deepEqual(twentyprimes.primes, [2,5,7,11,13,17,19])
+        assert.deepEqual(twentyprimes.primes, [2,3,5,7,11,13,17,19])
     })
 
 
