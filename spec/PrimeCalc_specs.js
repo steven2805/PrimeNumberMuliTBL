@@ -6,25 +6,25 @@ describe('This is testing the Prime Calculator', function(){
 
 
 
-    it('should return 100 values', function () {
-        var primeCalc = new PrimeCalculator(100);
+    it('should return 50000 values', function () {
+        var primeCalc = new PrimeCalculator(10);
         var value = primeCalc.range;
-        assert.deepEqual(value.length,100);
+        assert.deepEqual(value.length,50000);
     });
 
     it('should return default to 1 if not a valid number', function (){
         var notvalid = new PrimeCalculator("something");
-        var value = notvalid.range;
+        var value = notvalid.primes;
         assert.deepEqual(value.length,1)
     });
 
     it('should default to 1 if negative number used', function(){
         var secondnotvalid = new PrimeCalculator(-100);
-        assert.deepEqual(secondnotvalid.range.length ,1)
+        assert.deepEqual(secondnotvalid.primes.length ,1)
     });
 
-    it('should be returning primes below 20', function (){
-        var twentyprimes = new PrimeCalculator(20);
+    it('should be returning 8 primes', function (){
+        var twentyprimes = new PrimeCalculator(8);
         assert.deepEqual(twentyprimes.primes, [2,3,5,7,11,13,17,19])
     })
 

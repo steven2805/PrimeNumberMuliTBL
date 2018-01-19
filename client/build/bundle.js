@@ -68,19 +68,19 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var PrimeCalculator = __webpack_require__(1);
-var Muliplier = __webpack_require__(2);
+var Multiplier = __webpack_require__(2);
 
 mainSetUp = function(){
-    var inputArea = setUpInput();
+    var inputAreaDIV = setUpInput();
     var inputBox = document.getElementById("InputBox");
-    var button = setUpConfirmBox(inputArea);
+    var button = setUpConfirmBox(inputAreaDIV);
 
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
         buildTable(prime);
-        var muliplier = new Muliplier(prime.primes);
+        // var multiplierValues = new Multiplier(prime.primes);
         console.log(prime);
-        console.log(muliplier.output);
+        // console.log(multiplierValues.output);
     })
 
 };
@@ -91,6 +91,7 @@ setUpInput = function(){
     inputBox.id = "InputBox";
     inputBox.name = "Input Number";
     inputBox.type = "number";
+    inputBox.min = "1";
     inputBox.defaultValue = 1;
     inputArea.appendChild(inputBox);
     console.log(inputBox);
@@ -108,7 +109,7 @@ buildTable = function (headers) {
     var div = document.getElementById("table");
 
 
-}
+};
 
 window.addEventListener("load", function(event){
     console.log("this is the new entry point");
@@ -127,14 +128,15 @@ function PrimeCalculator(n){
         this.number = n;
     }
     this.range = this.rangeGeneration();
-    this.primes = primeFinder(this.range);
+    this.primes = primeFinder(this.range, this.number);
 }
+
+
 
 PrimeCalculator.prototype.rangeGeneration = function(){
     var counter = 1;
-
     var rangeArray = [];
-    while(counter <= this.number){
+    while(counter <= 50000){
         rangeArray.push(counter);
         counter++;
     }
@@ -142,16 +144,17 @@ PrimeCalculator.prototype.rangeGeneration = function(){
 
 };
 
-primeFinder = function(array){
+primeFinder = function(array, number){
     var primeArray = array.slice(0);
     var value = findValues(primeArray, 0);
-    var result = clearUpPrimesArray(value);
+    var result = clearUpPrimesArray(value,number);
     return result;
 };
 
+
+
 findValues = function(array, offset){
     array[0] = 0;
-
     for(var i = 0 + offset ; i < array.length; i++){
 
         if(array[i] !== 0){
@@ -176,11 +179,14 @@ primer = function(array, value) {
     findValues(holdingArray, value);
 };
 
-clearUpPrimesArray = function(array){
+clearUpPrimesArray = function(array, number){
     var tempArray = [];
     for(var i = 0; i < array.length; i++){
         if(array[i] !== 0){
             tempArray.push(array[i]);
+            if(tempArray.length >= number){
+                break;
+            }
         }
     }
      return tempArray;

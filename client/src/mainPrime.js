@@ -1,17 +1,17 @@
 var PrimeCalculator = require("./PrimeCalc.js");
-var Muliplier = require("./multiplier.js");
+var Multiplier = require("./multiplier.js");
 
 mainSetUp = function(){
-    var inputArea = setUpInput();
+    var inputAreaDIV = setUpInput();
     var inputBox = document.getElementById("InputBox");
-    var button = setUpConfirmBox(inputArea);
+    var button = setUpConfirmBox(inputAreaDIV);
 
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
         buildTable(prime);
-        var muliplier = new Muliplier(prime.primes);
+        // var multiplierValues = new Multiplier(prime.primes);
         console.log(prime);
-        console.log(muliplier.output);
+        // console.log(multiplierValues.output);
     })
 
 };
@@ -22,6 +22,7 @@ setUpInput = function(){
     inputBox.id = "InputBox";
     inputBox.name = "Input Number";
     inputBox.type = "number";
+    inputBox.min = "1";
     inputBox.defaultValue = 1;
     inputArea.appendChild(inputBox);
     console.log(inputBox);
@@ -39,7 +40,7 @@ buildTable = function (headers) {
     var div = document.getElementById("table");
 
 
-}
+};
 
 window.addEventListener("load", function(event){
     console.log("this is the new entry point");
