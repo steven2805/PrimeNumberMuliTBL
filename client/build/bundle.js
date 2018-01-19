@@ -77,10 +77,10 @@ mainSetUp = function(){
 
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
-        buildTable(prime);
-        // var multiplierValues = new Multiplier(prime.primes);
+        var multiplierValues = new Multiplier(prime.primes);
+        buildTable(prime, multiplierValues);
         console.log(prime);
-        // console.log(multiplierValues.output);
+        console.log(multiplierValues.output);
     })
 
 };
@@ -92,6 +92,7 @@ setUpInput = function(){
     inputBox.name = "Input Number";
     inputBox.type = "number";
     inputBox.min = "1";
+    inputBox.max = "5133";
     inputBox.defaultValue = 1;
     inputArea.appendChild(inputBox);
     console.log(inputBox);
@@ -105,9 +106,19 @@ setUpConfirmBox = function(area){
     return button;
 };
 
-buildTable = function (headers) {
+buildTable = function (headers, multiValues) {
     var div = document.getElementById("table");
-
+    var table = document.createElement("table");
+    var tr = document.createElement("tr");
+    var counter = 0;
+    while(counter < headers.primes.length){
+        var th = document.createElement('th');
+        th.innerHTML = headers.primes[counter];
+        tr.appendChild(th);
+        table.appendChild(tr);
+        counter++;
+    }
+    div.appendChild(table);
 
 };
 
@@ -206,12 +217,10 @@ function Multiplier(primes){
 
 runMultiplier = function(primes){
     var totalnumber = primes.length;
-    console.log(totalnumber,"this is the value you are looking for ");
-    var copyPrimes = primes.slice(0);
-
     var valueArray = [];
     for(var i = 0; i < totalnumber; i++){
         var innerValues = [];
+        innerValues.push(primes[i]);
         for(var j = 0; j < totalnumber;j++){
             innerValues.push(primes[i] * primes[j]);
         }
