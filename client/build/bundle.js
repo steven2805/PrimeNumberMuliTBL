@@ -68,6 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var PrimeCalculator = __webpack_require__(1);
+var Muliplier = __webpack_require__(2);
 
 mainSetUp = function(){
     var inputArea = setUpInput();
@@ -77,7 +78,9 @@ mainSetUp = function(){
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
         buildTable(prime);
+        var muliplier = new Muliplier(prime.primes);
         console.log(prime);
+        console.log(muliplier.output);
     })
 
 };
@@ -184,6 +187,37 @@ clearUpPrimesArray = function(array){
 };
 
 module.exports = PrimeCalculator;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+
+
+function Multiplier(primes){
+    this.output = runMultiplier(primes)
+}
+
+runMultiplier = function(primes){
+    var totalnumber = primes.length;
+    console.log(totalnumber,"this is the value you are looking for ");
+    var copyPrimes = primes.slice(0);
+
+    var valueArray = [];
+    for(var i = 0; i < totalnumber; i++){
+        var innerValues = [];
+        for(var j = 0; j < totalnumber;j++){
+            innerValues.push(primes[i] * primes[j]);
+        }
+        valueArray.push(innerValues);
+    }
+    return valueArray;
+
+};
+
+
+
+module.exports = Multiplier;
 
 /***/ })
 /******/ ]);

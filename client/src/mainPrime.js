@@ -1,4 +1,5 @@
 var PrimeCalculator = require("./PrimeCalc.js");
+var Muliplier = require("./multiplier.js");
 
 mainSetUp = function(){
     var inputArea = setUpInput();
@@ -8,7 +9,9 @@ mainSetUp = function(){
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
         buildTable(prime);
+        var muliplier = new Muliplier(prime.primes);
         console.log(prime);
+        console.log(muliplier.output);
     })
 
 };
