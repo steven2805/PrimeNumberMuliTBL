@@ -36,6 +36,7 @@ setUpInput = function(){
 setUpConfirmBox = function(area){
     var button = document.createElement('button');
     button.innerHTML = "Submit";
+    button.class = "button";
     area.appendChild(button);
     return button;
 };
@@ -67,6 +68,7 @@ buildTable = function (headers, multiValues) {
                 td.bgColor = "4CAF50";
             }
             td.innerHTML = multiValues[i][j];
+            td.title = headers.primes[i] + "X" + headers.primes[j - 1];
             fragment.appendChild(td);
         }
         tr2.appendChild(fragment);
