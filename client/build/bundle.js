@@ -78,7 +78,7 @@ mainSetUp = function(){
     button.addEventListener('click', function(){
         var prime = new PrimeCalculator(inputBox.value);
         var multiplierValues = new Multiplier(prime.primes);
-        buildTable(prime, multiplierValues);
+        buildTable(prime, multiplierValues.output);
         console.log(prime);
         console.log(multiplierValues.output);
     })
@@ -111,6 +111,10 @@ buildTable = function (headers, multiValues) {
     var table = document.createElement("table");
     var tr = document.createElement("tr");
     var counter = 0;
+    var spacing = document.createElement('th');
+    spacing.innerHTML = "#";
+    tr.appendChild(spacing);
+
     while(counter < headers.primes.length){
         var th = document.createElement('th');
         th.innerHTML = headers.primes[counter];
@@ -118,6 +122,18 @@ buildTable = function (headers, multiValues) {
         table.appendChild(tr);
         counter++;
     }
+
+
+    for(var i = 0; i < multiValues.length; i++){
+        var tr2 = document.createElement('tr');
+        for(var j = 0; j < multiValues[i].length; j++) {
+            var th2 = document.createElement('th');
+            th2.innerHTML = multiValues[i][j];
+            tr2.appendChild(th2);
+        }
+        table.appendChild(tr2);
+    }
+
     div.appendChild(table);
 
 };
