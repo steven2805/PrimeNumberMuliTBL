@@ -127,9 +127,13 @@ buildTable = function (headers, multiValues) {
     for(var i = 0; i < multiValues.length; i++){
         var tr2 = document.createElement('tr');
         for(var j = 0; j < multiValues[i].length; j++) {
-            var th2 = document.createElement('th');
-            th2.innerHTML = multiValues[i][j];
-            tr2.appendChild(th2);
+            var td = document.createElement('td');
+            if(j === 0) {
+                td.bgColor = "4CAF50";
+                td.color = "white";
+            }
+            td.innerHTML = multiValues[i][j];
+            tr2.appendChild(td);
         }
         table.appendChild(tr2);
     }
@@ -163,7 +167,7 @@ function PrimeCalculator(n){
 PrimeCalculator.prototype.rangeGeneration = function(){
     var counter = 1;
     var rangeArray = [];
-    while(counter <= 50000){
+    while(counter <= 21000){
         rangeArray.push(counter);
         counter++;
     }

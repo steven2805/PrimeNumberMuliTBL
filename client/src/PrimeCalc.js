@@ -14,7 +14,7 @@ function PrimeCalculator(n){
 PrimeCalculator.prototype.rangeGeneration = function(){
     var counter = 1;
     var rangeArray = [];
-    while(counter <= 50000){
+    while(counter <= 21000){
         rangeArray.push(counter);
         counter++;
     }
