@@ -19,7 +19,7 @@ PrimeCalculator.prototype.rangeGeneration = function(){
     if(betweenRange){
         var upto = this.number;
     }else{
-        var upto = 6000;
+        var upto = 7000;
     }
     while(counter <= upto){
         rangeArray.push(counter);

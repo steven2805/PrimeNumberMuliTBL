@@ -20,17 +20,17 @@ mainSetUp = function(){
 };
 
 setUpInput = function(){
-    var inputArea = document.getElementById("inputArea");
+    var inputDiv = document.getElementById("inputArea");
     var inputBox = document.createElement('input');
     inputBox.id = "InputBox";
     inputBox.name = "Input Number";
     inputBox.type = "number";
     inputBox.min = "1";
-    inputBox.max = "5133";
-    inputBox.defaultValue = 1;
-    inputArea.appendChild(inputBox);
+    inputBox.max = "700";
+    inputBox.defaultValue = "1";
+    inputDiv.appendChild(inputBox);
     console.log(inputBox);
-    return inputArea;
+    return inputDiv;
 };
 
 setUpConfirmBox = function(area){

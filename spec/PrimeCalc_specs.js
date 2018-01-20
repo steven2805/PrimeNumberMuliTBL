@@ -3,8 +3,8 @@ var PrimeCalculator = require("../client/src/PrimeCalc.js");
 
 describe('This is testing the Prime Calculator', function(){
 
-    
-    it('should return 50000 values', function () {
+
+    it('should return 6000 values', function () {
         var primeCalc = new PrimeCalculator(10);
         var value = primeCalc.range;
         assert.deepEqual(value.length,6000);
