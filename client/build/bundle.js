@@ -157,23 +157,30 @@ window.addEventListener("load", function(event){
 /* 1 */
 /***/ (function(module, exports) {
 
+var betweenRange = false ;//This is unused but allows changing the application to find primes between a range
 
-function PrimeCalculator(n){
-    if(isNaN(n) || n < 1){
+
+function PrimeCalculator(inputNumber){
+    if(isNaN(inputNumber) || inputNumber < 1){
         this.number = 1;
     }else{
-        this.number = n;
+        this.number = inputNumber;
     }
+
     this.range = this.rangeGeneration();
     this.primes = primeFinder(this.range, this.number);
 }
 
 
-
 PrimeCalculator.prototype.rangeGeneration = function(){
     var counter = 1;
     var rangeArray = [];
-    while(counter <= 6000){
+    if(betweenRange){
+        var upto = this.number;
+    }else{
+        var upto = 6000;
+    }
+    while(counter <= upto){
         rangeArray.push(counter);
         counter++;
     }
@@ -181,25 +188,25 @@ PrimeCalculator.prototype.rangeGeneration = function(){
 
 };
 
-primeFinder = function(array, number){
-    var primeArray = array.slice(0);
-    var value = findValues(primeArray, 0);
-    var result = clearUpPrimesArray(value,number);
-    return result;
+primeFinder = function(range, inputNumber){
+    var rangeArray = range.slice(0);
+    var unSortedPrimes = findValues(rangeArray, 0);
+    var sortedPrimes = clearUpPrimesArray(unSortedPrimes,inputNumber);
+    return sortedPrimes;
 };
 
 
 
-findValues = function(array, offset){
-    array[0] = 0;
-    for(var i = 0 + offset ; i < array.length; i++){
+findValues = function(rangeArray, offset){
+    rangeArray[0] = 0;
+    for(var i = 0 + offset ; i < rangeArray.length; i++){
 
-        if(array[i] !== 0){
-            primer(array,array[i]);
+        if(rangeArray[i] !== 0){
+            primer(rangeArray,rangeArray[i]);
             break;
         }
     }
-    return array;
+    return rangeArray;
 };
 
 primer = function(array, value) {
@@ -221,7 +228,7 @@ clearUpPrimesArray = function(array, number){
     for(var i = 0; i < array.length; i++){
         if(array[i] !== 0){
             tempArray.push(array[i]);
-            if(tempArray.length >= number){
+            if(tempArray.length >= number && !betweenRange){
                 break;
             }
         }
