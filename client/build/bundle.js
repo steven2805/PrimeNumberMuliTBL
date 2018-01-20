@@ -76,6 +76,9 @@ mainSetUp = function(){
     var button = setUpConfirmBox(inputAreaDIV);
 
     button.addEventListener('click', function(){
+        if(inputBox.value > 500){
+            window.alert("WARNING...Performance may be slow when large values are used !");
+        }
         var prime = new PrimeCalculator(inputBox.value);
         var multiplierValues = new Multiplier(prime.primes);
         buildTable(prime, multiplierValues.output);
@@ -107,6 +110,7 @@ setUpConfirmBox = function(area){
 };
 
 buildTable = function (headers, multiValues) {
+    var fragment = document.createDocumentFragment();
     var div = document.getElementById("table");
     var table = document.createElement("table");
     var tr = document.createElement("tr");
@@ -130,11 +134,11 @@ buildTable = function (headers, multiValues) {
             var td = document.createElement('td');
             if(j === 0) {
                 td.bgColor = "4CAF50";
-                td.color = "white";
             }
             td.innerHTML = multiValues[i][j];
-            tr2.appendChild(td);
+            fragment.appendChild(td);
         }
+        tr2.appendChild(fragment);
         table.appendChild(tr2);
     }
 
@@ -143,7 +147,7 @@ buildTable = function (headers, multiValues) {
 };
 
 window.addEventListener("load", function(event){
-    console.log("this is the new entry point");
+    console.log("Entry point");
     mainSetUp();
 });
 
