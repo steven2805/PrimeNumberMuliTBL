@@ -82,8 +82,6 @@ mainSetUp = function(){
         var prime = new PrimeCalculator(inputBox.value);
         var multiplierValues = new Multiplier(prime.primes);
         buildTable(prime, multiplierValues.output);
-        console.log(prime);
-        console.log(multiplierValues.output);
     })
 
 };
@@ -98,7 +96,6 @@ setUpInput = function(){
     inputBox.max = "700";
     inputBox.defaultValue = "1";
     inputDiv.appendChild(inputBox);
-    console.log(inputBox);
     return inputDiv;
 };
 
@@ -249,12 +246,12 @@ function Multiplier(primes){
 }
 
 runMultiplier = function(primes){
-    var totalnumber = primes.length;
+    var totalNumberPrimes = primes.length;
     var valueArray = [];
-    for(var i = 0; i < totalnumber; i++){
+    for(var i = 0; i < totalNumberPrimes; i++){
         var innerValues = [];
         innerValues.push(primes[i]);
-        for(var j = 0; j < totalnumber;j++){
+        for(var j = 0; j < totalNumberPrimes;j++){
             innerValues.push(primes[i] * primes[j]);
         }
         valueArray.push(innerValues);

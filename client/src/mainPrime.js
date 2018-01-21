@@ -13,8 +13,6 @@ mainSetUp = function(){
         var prime = new PrimeCalculator(inputBox.value);
         var multiplierValues = new Multiplier(prime.primes);
         buildTable(prime, multiplierValues.output);
-        console.log(prime);
-        console.log(multiplierValues.output);
     })
 
 };
@@ -29,7 +27,6 @@ setUpInput = function(){
     inputBox.max = "700";
     inputBox.defaultValue = "1";
     inputDiv.appendChild(inputBox);
-    console.log(inputBox);
     return inputDiv;
 };
 

@@ -5,12 +5,12 @@ function Multiplier(primes){
 }
 
 runMultiplier = function(primes){
-    var totalnumber = primes.length;
+    var totalNumberPrimes = primes.length;
     var valueArray = [];
-    for(var i = 0; i < totalnumber; i++){
+    for(var i = 0; i < totalNumberPrimes; i++){
         var innerValues = [];
         innerValues.push(primes[i]);
-        for(var j = 0; j < totalnumber;j++){
+        for(var j = 0; j < totalNumberPrimes;j++){
             innerValues.push(primes[i] * primes[j]);
         }
         valueArray.push(innerValues);
