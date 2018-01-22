@@ -12,7 +12,7 @@ To edit any code ensure webpack is installed
 Run command "npm run bundle"
 
 Testing:
-To run tests endure mocha is installed
+To run tests ensure mocha is installed
 run command "npm test"
 
 
@@ -20,7 +20,7 @@ Pleased with:
 Utilisation of sieve of Eratosthenes algorithm for prime generation, I like that it's able to produce high numbered primes
 without being overly complicated. Additionally the chance to use other optimisation features/tools such as fragments for
 front-end displaying of content. Above that I enjoyed getting to use tools such as https://jsperf.com/ to test code run speed
-it was helping in creating a more fluid and optimised application without teh requirement for installing additional tools.
+it was helping in creating a more fluid and optimised application without the requirement for installing additional tools.
 
 What I would do with more time:
 With additional time I would work on increasing the performance regarding the front-end.
