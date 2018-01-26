@@ -1,5 +1,8 @@
 # PrimeNumberMuliTBL
 
+>> Note: Coding test with rules inplace
+
+
 Instructions:
 Ensure you have Node installed https://nodejs.org/en/download/
 Navigate to the same level as server.js
